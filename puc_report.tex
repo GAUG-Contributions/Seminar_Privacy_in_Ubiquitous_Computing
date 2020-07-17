@@ -141,7 +141,7 @@ training \& test data \\
     # Computes the hash of the Block
     def compute_hash(self):
         # self.__dict__ -> all variables inside the Block class
-        encoded_block = json.dumps(self.__dict__, sort_keys=True
+        encoded_block = json.dumps(self.__dict__, sort_keys=True)
         return hashlib.sha256(encoded_block).hexdigest()
     \end{lstlisting}
     \end{center}
