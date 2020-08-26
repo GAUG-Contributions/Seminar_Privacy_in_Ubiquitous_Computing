@@ -1,8 +1,7 @@
-\documentclass[12pt]{article}
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath,amssymb,amsfonts}
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
 \usepackage[english]{babel}
 \usepackage[nottoc]{tocbibind}
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,]{geometry}
@@ -22,149 +21,121 @@
 }
 \usepackage{afterpage,hyperref} 
 \usepackage{listings}
-\lstset{
-    basicstyle=\ttfamily\footnotesize,
-    numbers=left,
-    xleftmargin=15pt,
-}
-
 \usepackage{subfigure}
-%\usepackage{float}
 
-
-% TabularX column defintions
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-%\captionsetup[table]{aboveskip=4pt}
-%\captionsetup[table]{belowskip=0pt}
-%\captionsetup{hypcap=false}
-
-
-
-%--------------------------MAKETITLE-------------------------------%
-\title{Seminar on Privacy in Ubiquitous Computing}
-\date{\today}
-\author{Mehmed Mustafa, Chris Warin} 
 
 \begin{document}
-%--------------------------BEGINNING-------------------------------%
-\pagenumbering{roman} 
-\maketitle
-\thispagestyle{empty}
-\begin{abstract}
 
+\title{Seminar on Privacy in Ubiquitous Computing}
+
+
+\author{\IEEEauthorblockN{Mehmed Mustafa}
+\IEEEauthorblockA{\textit{Institute of Computer Science} \\
+\textit{University of Göttingen}\\
+mehmed.mustafa@stud.uni-goettingen.de}
+\and
+\IEEEauthorblockN{Chris Warin}
+\IEEEauthorblockA{\textit{Institute of Computer Science} \\
+\textit{University of Göttingen}\\
+chris.warin@stud.uni-goettingen.de
+}
+}
+
+
+\maketitle
+
+\begin{abstract}
+This document is a model and instructions for \LaTeX.
+This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
+or Math in Paper Title or Abstract.
 \end{abstract}
 
-\newpage
-\tableofcontents
-\newpage
+\begin{IEEEkeywords}
+component, formatting, style, styling, insert
+\end{IEEEkeywords}
 
-%-----------------------SECTION START------------------------
-\pagenumbering{arabic}
+\section{Introduction}
+This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
 
+\section{Bystanders’ privacy pervasiveness}
+Give real-life examples and why they are problematic.
+\subsection{Videos and images}
+Surveillance cameras, smartphone photos/videos in the street capturing bystanders
+\subsection{Audio}
+Google Home / Amazon Alexa in a household: other members are also listened
+\subsection{Location}
+Pervasive location information in apps (e.g. French StopCovid app recenses more contacts’ location information than announced)
+\subsection{Others}
+IoT, see example in 2.b
 
-%\setcounter{table}{0}
+\section{Technologies for ensuring bystanders’ privacy}
 
-\section{Introduction} \label{sec:Intro}
+\subsection{Technology 1}
 
-\section{Foundations} \label{sec:Foundations}
+\subsection{Technology 2}
 
-\section{Approach} \label{sec:Approach}
+\subsection{Technology 3}
 
-\section{Conclusion} \label{sec:Conclusion}
+\subsection{Others}
 
-\section{Template Section} \label{sec:Template}
-    This template should give us a first version we can start of with. This last section should support us in writing a more coherent paper together. Therefore I put some guidelines for the writing in section~\ref{sec:Guidelines}. Also there are some example for the use of functionalities in Section~\ref{sec:Examples}. You can copy them and adapt them the way you need them. Just leave this section here for now.
+\section{Limitations and challenges of privacy ensuring technologies}
+\subsection{Cardea (user contribution)}
+Willingly putting your personal data on a cloud to avoid having your privacy invaded by others can be seen as counter productive
+\subsection{Example 2}
+\subsection{Example 3}
+\subsection{(optionally) Ideas that could fix these limitations}
 
-
-    \subsection{Guidelines} \label{sec:Guidelines}
-        \begin{itemize}
-        \item \textbf{pushing to the repo} \\
-            When you push the newest version to the repo, please leave out the files created by the compiler (besides the pdf). The report on the repo just needs the tex-file, the bib-file and maybe the most current pdf-file. Of course push the changes to the sub folders if you added images or sources.
-
-        \item \textbf{references} \\
-            For every section, subsection, figure, or table you include give it a label. Therefore everyone can refer to it later. It can be done by \textit{$\backslash$label\{marker\}}. The marker should declare the type of the object and a short (one word in the best case) name for the object. The types are "sec:" for a section, "fig:" for a figure and 'tab:' for a table. You can refer to them then by \textit{$\backslash$ref\{fig:example\}}. Also you should use a $\sim$ symbol before instead of normal space to avoid line breaks there.
-
-        \item \textbf{citations} \\
-            For cititions the BibTex code for the source needs to be in the 'literature\_list.bib' file. You can usually get them pretty easily from \textit{Google Scholar}. Please safe all papers/sources you used in the "sources" folder in addition. The citation can then be made by \textit{$\backslash$cite\{antonopoulos2017mastering\}} for example. Please use the $\sim$ here too. The result then looks like this~\cite{shu2016cardea}.
-
-
-        \item \textbf{abbreviations} \\
-            Please use the $\backslash$ac\{...\} command to handle abbreviations. You can define them at the end of the document. Here is one example... When used the first time it automatically defines the abbreviation: \ac{AI}. For all further times it just prints: \ac{AI}. Also the plural is possible \acp{AI}
-
-        \end{itemize}
-
-
-    \subsection{Examples} \label{sec:Examples}
-
-    \begin{figure}[t]
-        \centering
-        \subfigure[Cadrea Overview]{\includegraphics[width=.49\textwidth]{img/cardea_overview_diagram.png}}
-        \subfigure[Cadrea Overview]{\includegraphics[width=.49\textwidth]{img/cardea_overview_diagram.png}}
-        \caption{Example for 2 subfigures.}
-        \label{fig:CardeaDiagram}
-    \end{figure}
+\section{Conclusion}
 
 
+\begin{table}[htbp]
+\caption{Table Type Styles}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
+\cline{2-4} 
+\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
+\hline
+copy& More table copy$^{\mathrm{a}}$& &  \\
+\hline
+\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
 
-    \begin{figure} [t]
-        \centering
-        \includegraphics[width=.3\textwidth]{img/cardea_overview_diagram.png}
-        \caption{Example for a single figure.}
-        \label{fig:drake}
-    \end{figure}
-
-
-
-    \begin{table}[t]
-        \centering
-        %\captionof{table}{The tasks for the different prototypes.}
-        \begin{tabular}{|C{.07\textwidth}|L{.41\textwidth}|L{.41\textwidth}|}
-            \hline & \textbf{SVM} & \textbf{Neural Network} \\
-            \hline MR-1 & Permutation of training \& test features & Permutation of input channels (RGB channels) for
-training \& test data \\
-            \hline MR-2 & Permutation of order of training instances & Permutation of the convolution operation order for
-training \& test data \\
-            \hline MR-3 & Shifting of training \& test features by a constant (only for RBF kernel) & Normalizing the test data \\
-            \hline MR-4 & Linear scaling of the test features (only for linear kernel) & Scaling the test data by a constant \\
-            \hline
-        \end{tabular}
-        
-        \captionof{table}{Content totally out of context, literally just as an example for a table.}
-        \label{tab:relations}
-    \end{table}  
-
-        \begin{center}
-    \begin{lstlisting}
-    # Computes the hash of the Block
-    def compute_hash(self):
-        # self.__dict__ -> all variables inside the Block class
-        encoded_block = json.dumps(self.__dict__, sort_keys=True)
-        return hashlib.sha256(encoded_block).hexdigest()
-    \end{lstlisting}
-    \end{center}
+\begin{figure}[t]
+\centerline{\includegraphics[width=.5\textwidth]{img/cardea_overview_diagram.png}}
+\caption{Example of a figure caption.}
+\label{fig}
+\end{figure}
 
 
+\section*{References}
 
+Please number citations consecutively within brackets \cite{shu2016cardea}. The 
+sentence punctuation follows the bracket \cite{dufaux2010framework}. Refer simply to the reference 
+number, as in \cite{denning2014situ}---do not use ``Ref. \cite{denning2014situ}'' or ``reference \cite{denning2014situ}'' except at 
+the beginning of a sentence: ``Reference \cite{lu2017privacy} was the first $\ldots$''
 
-\newpage
+Number footnotes separately in superscripts. Place the actual footnote at 
+the bottom of the column in which it was cited. Do not put footnotes in the 
+abstract or reference list. Use letters for table footnotes.
 
-%-------------------References---------------------------%
-\section*{Abbreviations and Acronyms}
-\addcontentsline{toc}{section}{Abbreviations and Acronyms}
-\begin{acronym}[Bash]
-\acro{AI} {\textit{Artificial Intelligence}}
-\acro{ML} {\textit{Machine Learning}}
+Unless there are six authors or more give all authors' names; do not use 
+``et al.''. Papers that have not been published, even if they have been 
+submitted for publication, should be cited as ``unpublished'' \cite{lu2017privacy}. Papers 
+that have been accepted for publication should be cited as ``in press'' \cite{olteanu2018consensual}. 
+Capitalize only the first word in a paper title, except for proper nouns and 
+element symbols.
 
+For papers published in translation journals, please give the English 
+citation first, followed by the original foreign-language citation \cite{olteanu2018consensual}.
 
-\end{acronym}
+\bibliographystyle{ieeetr}
+{\footnotesize
+\bibliography{literature_list}}
 
-%----------------List-of-Tables--------------------%
-%Comment the following lines out if you dont have tables or figures
-\listoftables
-\listoffigures
-\bibliographystyle{plain}
-\bibliography{literature_list}
 \end{document}
