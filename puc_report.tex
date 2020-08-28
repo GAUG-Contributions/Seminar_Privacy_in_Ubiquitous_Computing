@@ -1,4 +1,4 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[conference]{ieeetran}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
@@ -15,8 +15,8 @@
 \usepackage{multirow}
 \usepackage{color}
 \usepackage{capt-of}
-\usepackage{array,				%better tables
-			tabularx,			%instead of tabular*             
+\usepackage{array,			%better tables
+			tabularx,			    %instead of tabular*             
 			booktabs,			%tables for good publications
 }
 \usepackage{afterpage,hyperref} 
@@ -25,9 +25,7 @@
 
 
 \begin{document}
-
 \title{Seminar on Privacy in Ubiquitous Computing}
-
 
 \author{\IEEEauthorblockN{Mehmed Mustafa}
 \IEEEauthorblockA{\textit{Institute of Computer Science} \\
@@ -41,7 +39,6 @@ chris.warin@stud.uni-goettingen.de
 }
 }
 
-
 \maketitle
 
 \begin{abstract}
@@ -51,14 +48,13 @@ or Math in Paper Title or Abstract.
 \end{abstract}
 
 \begin{IEEEkeywords}
-component, formatting, style, styling, insert
+privacy, bystander, privacy enhancing technology
 \end{IEEEkeywords}
 
 \section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+Today's society is filled with technological devices that are capable of gathering data from people, such as smartphones \cite{lu2017privacy}, surveillance cameras \cite{denning2014situ}, \ac{AR} devices \cite{shu2016cardea} or \ac{IoT} devices \cite{lu2017privacy}. Although these devices been causing a number of concerns regarding the privacy of users, another topic---that is less publicly discussed, but as important---is the privacy of bystanders, i.e. the people that are around users using these devices, and of which personal information can be collected without their knowledge or consent. A common real-life example could be a person taking a picture in a busy street, where the faces of bystanders are recognizable. The picture is taken without their knowledge nor consent, and can later be posted on social media. The data that are collected from bystanders can come from different mediums (i.e. pictures, videos, audio), and can be of different nature (i.e. face, voice, location). This results in pervasiveness in bystanders' privacy and touches several domains, namely economical, social, legal, and technological. This report focuses on the different technologies that address the pervasiveness in the privacy of bystanders. Section~\ref{BystandersPrivacy} lists different real-life examples of bystanders' privacy being compromised. Section~\ref{Technologies} goes over different technologies that ensure different aspects of the privacy of bystanders. Section~\ref{Limitations} describes the current limitations and challenges that these technologies are facing, whether they are technological or not. Finally, section~\ref{Conclusion} concludes this report.
 
-\section{Bystanders’ privacy pervasiveness}
+\section{Bystanders’ privacy pervasiveness}\label{BystandersPrivacy}
 Give real-life examples and why they are problematic.
 \subsection{Videos and images}
 Surveillance cameras, smartphone photos/videos in the street capturing bystanders
@@ -69,7 +65,7 @@ Pervasive location information in apps (e.g. French StopCovid app recenses more 
 \subsection{Others}
 IoT, see example in 2.b
 
-\section{Technologies for ensuring the privacy of bystanders}
+\section{Technologies for ensuring the privacy of bystanders}\label{Technologies}
 
 \subsection{PriSurv Framework}
 Reference \cite{chinomi2008PriSurv}
@@ -83,14 +79,14 @@ Reference \cite{shu2016cardea}
 \subsection{Others - More specific Audio or Location based technologies should be found}
 
 
-\section{Limitations and challenges of privacy ensuring technologies}
+\section{Limitations and challenges of privacy ensuring technologies}\label{Limitations}
 \subsection{Cardea (user contribution)}
 Willingly putting your personal data on a cloud to avoid having your privacy invaded by others can be seen as counter productive
 \subsection{Example 2}
 \subsection{Example 3}
 \subsection{(optionally) Ideas that could fix these limitations}
 
-\section{Conclusion}
+\section{Conclusion}\label{Conclusion}
 
 
 \begin{table}[htbp]
@@ -137,6 +133,13 @@ element symbols.\cite{sen2016ipic}
 
 For papers published in translation journals, please give the English 
 citation first, followed by the original foreign-language citation \cite{olteanu2018consensual}.
+
+\section*{Abbreviations and Acronyms}
+\addcontentsline{toc}{section}{Abbreviations and Acronyms}
+\begin{acronym}[Bash]
+\acro{IoT} {\textit{Internet of Things}}
+\acro{AR} {\textit{Augmented Reality}}
+\end{acronym}
 
 \bibliographystyle{ieeetr}
 {\footnotesize
