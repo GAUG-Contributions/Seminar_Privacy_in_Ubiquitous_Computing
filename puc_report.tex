@@ -1,10 +1,8 @@
 \documentclass[conference]{IEEEtran}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{ucs}
+\usepackage[noadjust]{cite}
 \usepackage[utf8x]{inputenc}
 \usepackage[english]{babel}
 \usepackage[nottoc]{tocbibind}
-\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,]{geometry}
 \usepackage{graphicx}
 \usepackage{nameref}
 \usepackage[hidelinks]{hyperref}
@@ -12,17 +10,14 @@
 \usepackage{wrapfig}
 \usepackage[bottom,hang]{footmisc} 
 \usepackage{acronym}
-\usepackage{multirow}
 \usepackage{color}
-\usepackage{capt-of}
+\usepackage{afterpage,hyperref} 
+\usepackage{listings}
+\usepackage{subfigure}
 \usepackage{array,			%better tables
 			tabularx,			    %instead of tabular*             
 			booktabs,			%tables for good publications
 }
-\usepackage{afterpage,hyperref} 
-\usepackage{listings}
-\usepackage{subfigure}
-
 
 \begin{document}
 \title{Seminar on Privacy in Ubiquitous Computing}
@@ -52,13 +47,13 @@ privacy, bystander, privacy enhancing technology
 \end{IEEEkeywords}
 
 \section{Introduction}
-Today's society is filled with technological devices that are capable of gathering data from people, such as smartphones \cite{lu2017privacy}, surveillance cameras \cite{denning2014situ}, \ac{AR} devices \cite{shu2016cardea} or \ac{IoT} devices \cite{lu2017privacy}. Although these devices been causing a number of concerns regarding the privacy of users, another topic---that is less publicly discussed, but as important---is the privacy of bystanders, i.e. the people that are around users using these devices, and of which personal information can be collected without their knowledge or consent. 
+Today's society is filled with technological devices that are capable of gathering data from people, such as smartphones, surveillance cameras, \ac{AR} devices or \ac{IoT} devices \cite{lu2017privacy, shu2016cardea, denning2014situ}. Although these devices have been causing a number of concerns regarding the privacy of users, recent studies have shown that the privacy of bystanders (i.e. the individuals that are around users using these devices) is also often involved, as online-shared data often involves individuals other than the users sharing the data~\cite{olteanu2018consensual}. In other words, bystanders' personal information can be collected without their knowledge or consent~\cite{lu2017privacy}.
 
-A common real-life example could be a person taking a picture in a busy street, where the faces of bystanders are recognizable. The picture can later be posted on social media, and neither the posting or the taken picture have been made with the knowledge nor consent of the bystanders \cite{shu2016cardea}. The data that are collected from bystanders can come from different mediums (i.e. pictures, videos, audio), and can be of different nature (i.e. face, voice, location). This results in pervasiveness in bystanders' privacy and touches several domains, namely economical, social, legal, and technological. 
+A common real-life example could be a person taking a picture in a busy street, where the faces of bystanders are recognizable. The picture can later be posted on social media, and neither the posting or the taken picture have been made with the knowledge nor consent of the bystanders \cite{shu2016cardea}. This example can easily be adapted with different mediums (i.e. pictures, videos, audio), and the collected data can be of different nature (i.e. face, voice, location). This high amount of devices capable of collecting data of different nature results in high pervasiveness in bystanders' privacy. This is a significantly harder problem to solve than regular user privacy, mainly because bystanders can be unaware that data involving them is shared in the first place~\cite{olteanu2018consensual}.
 
-In the past, several attempts have been made in order to ensure the privacy of bystanders; technological attempts (e.g. gaussian blur, pixelisation \cite{dufaux2010framework}), as well as partial solutions to avoid privacy issues (e.g. forbidding the use of cameras in certain places\cite{shu2016cardea}). However, these have been proven either inefficient~\cite{dufaux2010framework} or insufficient~\cite{shu2016cardea}. 
+In the past, several attempts with different approaches have been made in order to ensure the privacy of bystanders. Technological solutions exist: for visual privacy, Gaussian blur, pixelisation \cite{dufaux2010framework} have been used in order to anonymize individuals---this is most commonly seen on TV. Olteanu, Huguenin, Dacosta and Hubaux~\cite{olteanu2018consensual} claim that few solutions exist for detecting and sharing interdependent data in a consensual and privacy-preserving way. Legal solutions have also been applied (e.g. forbidding the use of cameras, smartphones, or \ac{AR} devices like Google Glass in certain places\cite{shu2016cardea}). However, these have been proven either inefficient or insufficient~\cite{shu2016cardea, olteanu2018consensual, dufaux2010framework}. 
 
-This report focuses on the different technologies that address the pervasiveness in the privacy of bystanders. Section~\ref{BystandersPrivacy} lists different real-life examples of bystanders' privacy being compromised. Section~\ref{Technologies} goes over different technologies that ensure different aspects of the privacy of bystanders. Section~\ref{Limitations} describes the current limitations and challenges that these technologies are facing, whether they are technological or not. Finally, section~\ref{Conclusion} concludes this report.
+The protection of bystanders' privacy is a concern that touches several domains, namely economical, social, legal, and technological~\cite{lu2017privacy}. This report focuses on the different technologies that address the pervasiveness in the privacy of bystanders. Section~\ref{BystandersPrivacy} lists different real-life examples of bystanders' privacy being compromised. Section~\ref{Technologies} goes over different technologies that ensure different aspects of the privacy of bystanders. Section~\ref{Limitations} describes the current limitations and challenges that these technologies are facing, whether they are technological or not. Finally, section~\ref{Conclusion} concludes this report.
 
 \section{Bystanders’ privacy pervasiveness}\label{BystandersPrivacy}
 Give real-life examples and why they are problematic.
@@ -140,27 +135,6 @@ copy& More table copy$^{\mathrm{a}}$& &  \\
 \end{center}
 \end{table}
 
-\section*{References}
-
-Please number citations consecutively within brackets \cite{shu2016cardea}. The 
-sentence punctuation follows the bracket \cite{dufaux2010framework}. Refer simply to the reference 
-number, as in \cite{denning2014situ}---do not use ``Ref. \cite{denning2014situ}'' or ``reference \cite{denning2014situ}'' except at 
-the beginning of a sentence: ``Reference \cite{lu2017privacy} was the first $\ldots$''
-
-Number footnotes separately in superscripts.\cite{chinomi2008PriSurv} Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
-
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{lu2017privacy}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{olteanu2018consensual}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.\cite{sen2016ipic}
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{olteanu2018consensual}.
-
 \section*{Abbreviations and Acronyms}
 \addcontentsline{toc}{section}{Abbreviations and Acronyms}
 \begin{acronym}[Bash]
@@ -170,7 +144,7 @@ citation first, followed by the original foreign-language citation \cite{olteanu
 \acro{XML} {\textit{Extensible Markup Language}}
 \end{acronym}
 
-\bibliographystyle{ieeetr}
+\bibliographystyle{IEEEtran}
 {\footnotesize
 \bibliography{literature_list}}
 
