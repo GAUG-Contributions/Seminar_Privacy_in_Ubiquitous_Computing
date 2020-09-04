@@ -31,7 +31,7 @@
 \textit{University of Göttingen}\\
 mehmed.mustafa@stud.uni-goettingen.de}
 \and
-\IEEEauthorblockN{Chris Warin}
+\IEEEauthorblockN{Chris Warin} 
 \IEEEauthorblockA{\textit{Institute of Computer Science} \\
 \textit{University of Göttingen}\\
 chris.warin@stud.uni-goettingen.de
@@ -39,6 +39,8 @@ chris.warin@stud.uni-goettingen.de
 }
 
 \maketitle
+\thispagestyle{plain} %--to make title page number less
+\pagestyle{plain}    % -- to make other pages number less.
 
 \begin{abstract}
 This document is a model and instructions for \LaTeX.
@@ -89,13 +91,14 @@ Another domain where audio privacy can be compromised is healthcare. In \cite{la
 The protection of location privacy is crucial for users. Because of the high amount of policies and regulations regarding the sharing of one's location, the location of bystanders cannot easily be disclosed without their consent. However, it is still possible for users to link bystanders with locations. For example, a Facebook user could post a picture of themselves that also contains the faces of bystanders, while indicating the location where the picture was taken. Further linking can also be done if the user tags the people appearing in the picture as other Facebook users, directly linking an identity to a location. Although Facebook users can adjust their privacy settings to allow or disallow others to tag them~\cite{facebook2020help}, the unregistered or untagged bystanders appearing on photos or videos that have a location linked to them still have their location information disclosed without their knowledge or consent. These issues regarding the non-consensual sharing of bystanders' information such as their location have to be addressed in a system that could become mandatory by law~\cite{olteanu2018consensual}.
 
 \section{Technologies for ensuring the privacy of bystanders}\label{Technologies}
+%Intro
 
 \subsection{PriSurv System}
-Video surveillance systems are necessary for a safe and secure community, which explains why they are widely deployed. However, high deployment rate of these systems in public places leads to privacy invasion of the objects being recorded. Solution of this problem is a challenging task because privacy and security should be balanced appropriately and when possible in real-time.
+Video surveillance systems are necessary for a safe and secure community, which explains why they are widely deployed. However, the high deployment rate of these systems in public places leads to privacy invasion of the objects (i.e. individuals) being recorded. Finding a solution to this problem is a challenging task, because privacy and security should be balanced appropriately and, when possible, in real-time.
 
-There are several other studies on privacy based on video surveillance. Two studies proposed image processing methods in order to protect the privacy of objects \cite{cavallaro2005},\cite{kitahara2004}. In other two studies the privacy protection of objects depends either on the authority of objects or observers \cite{jehan2005},\cite{senior2005}. Privacy information can be embedded by using digital watermarking technology in such way that only predefined authorized viewers will have access to it \cite{zhang2005}. However, these solutions are not flexible enough, because the sense of privacy of different objects is not considered. For example, object A may want their privacy to be protected from observer A, but not from observer B. Some objects may not want a privacy protection at all. 
+There are several studies on privacy based on video surveillance. Two studies proposed image processing methods in order to protect the privacy of objects \cite{cavallaro2005, kitahara2004}. In two other studies, the privacy protection of objects depends either on the authority of objects or observers \cite{jehan2005, senior2005}. Privacy information can be embedded by using digital watermarking technology in such way that only predefined authorized viewers will have access to it \cite{zhang2005}. However, these solutions are not flexible enough, because the sense of privacy from different objects is not considered. For example, object A may want their privacy to be protected from observer A, but not from observer B. Some objects may not want a privacy protection at all. 
 
-PriSurv system \cite{chinomi2008PriSurv} can adaptively protect privacy of objects and disclose their visual information according to the privacy policies of the different objects. PriSurv is a video surveillance system, which is defined by visual abstraction and protects the privacy of objects appearing within a video depending who observes the video. Closeness between objects and observers determines the privacy policies to be used. 
+The PriSurv system \cite{chinomi2008PriSurv} can adaptively protect the privacy of objects and disclose their visual information according to the privacy policies of the different objects. PriSurv is a video surveillance system, which is defined by visual abstraction and protects the privacy of objects appearing within a video depending on who observes the video. The closeness between objects and observers determines the privacy policies to be used. 
 
 
 \subsubsection{Simple run case}
@@ -106,7 +109,7 @@ PriSurv system \cite{chinomi2008PriSurv} can adaptively protect privacy of objec
 \label{fig:prisurv}
 \end{figure}
 
-Figure~\ref{fig:prisurv} is an example run case of PriSurv, which shows how visual abstraction is used in order to protect the privacy of an object appearing within an image. Let o, a, v and S denote an object, an abstraction operator, a viewer and an original image, respectively. In the example, “Taro” is the object which appears within the original image and is monitored by “Stranger 1”, “Neighbor 1”, “Neighbor 2” and “Family 1” which are the different viewers. Since the closeness between the object and viewers is different, different abstraction operators are used for hiding the visual information of the object. In the example, these operators are “Dot”, “Silhouette”, “Mosaic” and “As-Is”, which are 4 of the 12 possible operators. Each viewer then receives a privacy protected version of the original image which is denoted by $S_{<o, v>}^a$. A simplified version of Taro’s privacy policy, which is a part of the abstraction operator, is also available to give a better understanding of how the closeness is defined. 
+Figure~\ref{fig:prisurv} is an example run case of PriSurv, which shows how visual abstraction is used in order to protect the privacy of an object appearing within an image. Let o, a, v and S denote an object, an abstraction operator, a viewer and an original image, respectively. In the example, “Taro” is the object which appears within the original image and is monitored by “Stranger 1”, “Neighbor 1”, “Neighbor 2” and “Family 1”, which are the different viewers. Since the closeness between the object and viewers is different, different abstraction operators are used for hiding the visual information of the object. In the example, these operators are “Dot”, “Silhouette”, “Mosaic” and “As-Is”, which are 4 of the 12 possible operators. Each viewer then receives a privacy protected version of the original image which is denoted by $S_{<o, v>}^a$. A simplified version of Taro’s privacy policy, which is a part of the abstraction operator, is also available to give a better understanding of how the closeness is defined. 
 
 \subsubsection{System overview}
 
@@ -120,23 +123,23 @@ Figure~\ref{fig:prisurv2} shows the architecture of the PriSurv system. It consi
 
 The \textbf{Analyzer}, which is a part of the video server, is responsible for identifying different objects. Each identifiable object must have its own \ac{RFID}-tag. The surveillance area is divided into smaller N x N areas and the location area of each \ac{RFID}-tag is determined by an \ac{RFID}-reader. Each object inside the original image is extracted and then identified separately by comparing the obtained visual data with the binary images of each object. 
 
-The \textbf{Profile Generator} is used for setting up privacy policies for different members of the system. Each member's personal information such as name, age, gender and address and privacy policy is stored securely inside the \textbf{Profile Base}. The Profile Generator is also responsible for converting data taken from the GUI to \ac{XML}-based syntax. The profile of each member can only be updated by them and other members have no access to this data. 
+The \textbf{Profile Generator} is used for setting up privacy policies for different members of the system. Each member's personal information such as name, age, gender, address and privacy policy is stored securely inside the \textbf{Profile Base}. The Profile Generator is also responsible for converting data taken from the GUI to \ac{XML}-based syntax. The profile of each member can only be updated by them and other members have no access to this data. 
 
-The \textbf{Access Controller} determines the closeness relationship between a requesting viewer and an object to be monitored by reading the \ac{XML}-based privacy policies of the object stored inside the Profile Base. Once the types of abstraction operators are extracted, Access Controller sends them to the Abstractor. 
+The \textbf{Access Controller} determines the closeness relationship between a requesting viewer and an object to be monitored by reading the \ac{XML}-based privacy policies of the object stored inside the Profile Base. Once the types of abstraction operators are extracted, the Access Controller sends them to the Abstractor. 
 
-The \textbf{Abstractor} is a processor for images that performs visual abstraction by using abstraction operators. 
+The \textbf{Abstractor} is an image processor that performs visual abstraction by using abstraction operators. 
 
 The \textbf{Video Data Base} stores past video data and makes it available to viewers after appropriate visual abstractions are performed. 
 
 \subsection{Cardea Framework}
 
-Surveillance cameras are not the only threat for the visual privacy of people. Availability of cameras within modern mobile and wearable devices has also increased people's concerns about their visual privacy, because nowadays taking photos or recording videos and then sharing online is easier. Moreover, sharing pictures and videos online could reveal more information than expected, especially when the data is publicly available. Usage of recognition technologies which are able to correlate the shared data to specific people, places, and things, could make the data searchable \cite{gross2014},\cite{shaw2006}. Even when taking photos is not involved, applications making use of the camera, such as \ac{AR} apps, could still compromise the visual privacy of bystanders by leaking the captured visuals, maliciously or not. 
+Surveillance cameras are not the only threat for the visual privacy of people. The availability of cameras within modern mobile and wearable devices has also increased people's concerns about their visual privacy, because nowadays taking photos or recording videos and sharing them online is easier. Moreover, sharing pictures and videos online could reveal more information than expected, especially when the data is publicly available. Usage of recognition technologies which are able to correlate the shared data to specific people, places, and things, could make the data searchable \cite{gross2014, shaw2006}. Even when taking photos is not involved, applications making use of the camera, such as \ac{AR} apps, could still compromise the visual privacy of bystanders by leaking the captured visuals, maliciously or not. 
 
 Privacy issues raised by unnoticed or unauthorized collection of visuals have been addressed, both legally and technically. Google Glass, for instance, is not allowed to be used at places such as hospitals, bars, and movie theatres \cite{google2013glass}. However, banning such devices is not a good and fundamental solution, because it takes away the possibility of people to capture and share happy moments, especially if there are not any bystanders around. As a result, there are increasing needs to design technical solutions which can protect visual privacy of individuals while not restricting the rights of other individuals. 
 	
-There are proposals for using visual markers \cite{roesner2014},\cite{liu2014} or colourful hats \cite{sastry2007} with which people can declare their disagreement to be captured. These approaches, however, are not flexible enough, because people should be able to control, modify and express their individual privacy preferences naturally – without the need of any extra facilities. PriSurv system, which was discussed in the previous section, also relies on extra facilities such as \ac{RFID}-tags and -readers. Thus, it is not a feasible solution for built-in cameras. 
+There are proposals for using visual markers \cite{roesner2014, liu2014} or colourful hats \cite{sastry2007} with which people can declare their disagreement to be captured. These approaches, however, are not flexible enough, because people should be able to control, modify and express their individual privacy preferences naturally – without the need of any extra facilities. The PriSurv system, which was discussed in the previous section, also relies on extra facilities such as \ac{RFID}-tags and readers. Thus, it is not a feasible solution for built-in cameras. 
 
-The Cardea framework \cite{shu2016cardea} does not rely on such or similar extra facilities, instead it takes advantage of computer vision techniques which are effective and reliable. Moreover, it allows people to change their privacy preferences dynamically, for example, by using predefined hand gestures. The framework also specifies context elements, such as scenes and presence of others. People can set their personal privacy profiles, hand gestures for flexible interaction with cameras and define context related privacy preferences. For example, some people might prefer their visual appearance to be hidden inside bars, but not in the parks. But in cases when they prefer to appear in photos, taken inside a bar, they can enable it with a hand gesture. Devices using the framework will automatically compute factors related to context, check people's privacy preferences, and protect their visual appearance by blurring their face.
+The Cardea framework \cite{shu2016cardea} does not rely on such or similar extra facilities. Instead, it takes advantage of computer vision techniques, which are effective and reliable. Moreover, it allows people to change their privacy preferences dynamically, e.g. by using predefined hand gestures. The framework also specifies context elements, such as scenes and the presence of others. People can set their personal privacy profiles, the hand gestures to be recognised by cameras for flexible interactions, and their context related privacy preferences. For example, some people might prefer their visual appearance to be hidden inside bars, but not in parks. But in case they change their mind and, for example, decide to appear in a photo taken inside a bar, they can indicate it with a hand gesture. Devices using the framework will automatically compute factors related to the context, check people's privacy preferences, and protect their visual appearance by blurring their face.
 
 \subsubsection{Key Concepts}
 \begin{figure}[t]
@@ -145,7 +148,7 @@ The Cardea framework \cite{shu2016cardea} does not rely on such or similar extra
 \label{fig:cardea}
 \end{figure}
 
-There are few key concepts which have to be briefly described before proceeding to the system overview. A person who has a device with integrated camera and is taking photos is the \textbf{recorder}. People who may appear in these photos are the \textbf{bystanders}. Bystanders who do not want to be identifiable in the photos can express their privacy preferences by using the Cardea framework. On the other hand, the recorder who cares and respects the privacy preferences of the bystanders can use the Cardea framework to take photos. Both the recorder and the bystanders are classified as \textbf{users} of the Cardea privacy protection framework. Each bystander sets their \textbf{privacy profile}. Each profile contains information such as \textbf{context elements}, \textbf{gesture interaction} options, and \textbf{privacy protection action} to be used. Bystanders have different privacy concerns depending on the context elements which can be locations, scenes and nearby people. The framework supports two gesture interactions: a victory sign and a palm, which stand for “Yes” and “No”, respectively, to the question “Would you like to appear in the taken photo?”. If a bystander does not use any of these gestures while the photo is taken, then the default privacy settings set in the privacy profile apply. Action taken in order to protect the visual privacy is face blurring. But further methods such as full body blurring, blending the body region into the background, or replacing the face with an average face are possible to be integrated. All preferences of the bystanders are stored inside a \textbf{cloud} which accepts requests from the recorder and processes images in a such way that the privacy preferences of the bystanders appearing in the images is respected. Figure~\ref{fig:cardea} visualizes the decision workflow of the Cardea framework. Decisions are made according to the computing results from the camera and remote cloud, then the original image is processed, in case it contradicts the privacy preferences of the bystanders. 
+A few key concepts have to be briefly described before proceeding to the system overview. A person who has a device with an integrated camera and is taking photos is referred to as the \textbf{recorder}. People who may appear in these photos are the \textbf{bystanders}. Bystanders who do not want to be identifiable in the photos can express their privacy preferences by using the Cardea framework. On the other hand, the recorder who cares and respects the privacy preferences of the bystanders can use the Cardea framework to take photos. Both the recorder and the bystanders are classified as \textbf{users} of the Cardea privacy protection framework. Each bystander sets their \textbf{privacy profile}. Each profile contains information such as \textbf{context elements}, \textbf{gesture interaction} options, and the \textbf{privacy protection action} to be made. Bystanders have different privacy concerns depending on the context elements which can be locations, scenes and nearby people. The framework supports two gesture interactions: a victory sign and a palm, which stand for “Yes” and “No”, respectively, to the question “Would you like to appear in the taken photo?”. If a bystander does not use any of these gestures while the photo is taken, then the default privacy settings set in their privacy profile apply. The taken action in order to protect the visual privacy is face blurring. But further methods such as full body blurring, blending the body region into the background, or replacing the face with an average face are possible to be integrated. All of the bystanders' preferences are stored inside a \textbf{cloud} which accepts requests from the recorder and processes images in such way that the privacy preferences of the bystanders appearing in the images are respected. Figure~\ref{fig:cardea} visualizes the decision workflow of the Cardea framework. Decisions are made according to the computing results from the camera and remote cloud, then the original image is processed, in case it contradicts the privacy preferences of the bystanders. 
 
 \subsubsection{System Overview}
 \begin{figure}[t]
@@ -154,13 +157,13 @@ There are few key concepts which have to be briefly described before proceeding 
 \label{fig:cardea2}
 \end{figure}
 
-Figure~\ref{fig:cardea2} shows the interactions between the major components. Cardea is composed of the client app and the cloud server. Bystanders can register, setup their profile settings and upload their photo by using the user interface of the client application. Face features of the bystander will be extracted and stored into the cloud server's database and be used for training the face recognition model. The privacy profile will also be stored in the database. Bystanders can change their privacy preferences at any time later. 
+Figure~\ref{fig:cardea2} shows the interactions between the major components. Cardea is composed of the client app and the cloud server. Bystanders can register, setup their profile settings and upload their photo by using the user interface of the client application. The face features of the bystander are extracted and stored into the cloud server's database to be used for training the face recognition model. The privacy profile is also stored in the database. Bystanders can change their privacy preferences at any time later. 
 
-Recorders use the client application to take photos. The application detects faces in the taken photos, extracts face features and computes context elements on the device. Face matching, user recognition and hand gesture detection processes are done on the cloud server, because they are computationally-intensive and infeasible on most devices. Once the results from the cloud are received, protection action will be performed. 
+Recorders use the client application to take photos. The application detects faces in the taken photos, extracts face features and computes context elements on the device. The face matching, user recognition and hand gesture detection processes are done on the cloud server, because they are computationally-intensive and infeasible on most devices. Once the results from the cloud are received, protection action will be performed. 
 
-The cloud server is responsible for storing user profiles and processing detection tasks upon requests from the recorder side. User recognition process is divided into three steps. The first step is to detect face regions on the image and then filter the results in order to reduce false positives. The second step is to extract face features in a compact but still discriminative way, so the face detection is done using these features rather than comparing just raw pixels. The last step is to match these representative features to faces stored on the cloud database. 
+The cloud server is responsible for storing user profiles and processing detection tasks upon requests from the recorder side. The user recognition process is divided into three steps. The first step consists in detecting face regions on the image before filtering the results in order to reduce false positives. The second step is to extract face features in a compact, but still discriminative way, so the face detection is done using these features rather than comparing just raw pixels. The last step is to match these representative features to faces stored on the cloud database. 
 
-Location filtering feature helps users define specific locations in which they may worry about their privacy more. The location of the device taking a picture is obtained directly from the \ac{GPS}. Scene classification is a more complex concept, because it does not only rely to places, but also gives information about the current activities of people. The framework covers 9 general scene groups which are further divided into more specific scenes. In total there are 98 different scenes. Users can more easily specify their privacy preferences by selecting from these general scene groups. 
+The location filtering feature helps users defining specific locations in which they may worry more about their privacy. The location of the device taking a picture is obtained directly from the \ac{GPS}. Scene classification is a more complex concept, because it does not only rely to places, but also gives information about the current activities of people. The framework covers 9 general scene groups which are further divided into more specific scenes. In total, there are 98 different scenes. Users can more easily specify their privacy preferences by selecting from these general scene groups. 
 
 
 \subsubsection{Example run case and evaluations}
@@ -170,43 +173,53 @@ Location filtering feature helps users define specific locations in which they m
 \label{fig:cardea3}
 \end{figure}
 
-Figure~\ref{fig:cardea3} shows a privacy protection example of the Cardea framework. The framework is able to detect three registered users, two hand gestures and a scene. The scene is classified correctly as Park \& street. The face of Hao is detected and blurred by default in order to match his visual privacy preferences. The face of Zerry, under normal circumstances, would not have been blurred, but because he is using “No” gesture while this particular picture is taken, his face is blurred. Jiayu has the opposite case of Zerry. Under normal circumstances her face would have been blurred, but because of her “Yes” gesture her face is identifiable.
-
-
+Figure~\ref{fig:cardea3} shows a privacy protection example of the Cardea framework. The framework detects three registered users, two hand gestures and a scene. The scene is classified correctly as Park \& street. The face of Hao is detected and blurred by default in order to match his visual privacy preferences. The face of Zerry, under normal circumstances, would not have been blurred, but because he is doing a “No” gesture while this particular picture is taken, his face is blurred. Jiayu has the opposite case of Zerry. Under normal circumstances, her face would have been blurred, but because of her “Yes” gesture, her face is identifiable.
 
 \subsection{Sharing of Multi-Subject and Interdependent Data}
 Reference \cite{olteanu2018consensual}
 
-
 \subsection{Others - More specific Audio or Location based technologies should be found}
 
-
 \section{Limitations and challenges of privacy ensuring technologies}\label{Limitations}
+
 \subsection{Cardea (user contribution)}
 Willingly putting your personal data on a cloud to avoid having your privacy invaded by others can be seen as counter productive
+
 \subsection{Example 2}
+
 \subsection{Example 3}
+
 \subsection{(optionally) Ideas that could fix these limitations}
 
 \section{Conclusion}\label{Conclusion}
+This report presented technologies that ensure the privacy of bystanders in various situations. An overview of past attempts at solving privacy issues has been seen, with the conclusion that they were mainly insufficient or inefficient. This leads back to tackling the problem today, with the challenge of providing flexible solutions for all users, depending on their placement on the privacy requirement spectrum. For this, modern technologies rely on user participation by asking users to create profiles with their personal privacy preferences. Some revolve around certain privacy threatening devices (e.g. drones, \ac{IoT} devices...)~\cite{yao2017privacy, bernd2020bystanders}, others are more generic (e.g. Cardea~\cite{shu2016cardea}). A distinction can be made between technologies that protect the privacy at time of data collection (e.g. when a picture or video is taken), and technologies that protect upon sharing of the data.
 
+Several privacy enhancing tools have been presented. PrivSurv~\cite{chinomi2008PriSurv}, a video surveillance system, relies on  \ac{RFID} tags to detect individuals. It then processes the recorded videos accordingly to the privacy preferences defined by the concerned bystanders in the system's profile base: bystanders can choose between different abstraction operators that are selected by the access controller upon determination of the closeness between the bystander and the viewer. Despite not being the state of the art and relying on extra facilities, it remains an interesting first step and brings good ideas such as having profiles defined by the users themselves to match their personal requirements. 
 
-\begin{table}[htbp]
-\caption{Table Type Styles}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-\hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
+The same idea was taken almost ten years later in Cardea~\cite{shu2016cardea}, which is the second technology we presented. The strength of Cardea lies in the absence of external facilities: bystanders can indicate their consent for being photographed with simple hand gestures. The two client applications (i.e. one for the users that with to take pictures, the other for bystanders to register their privacy profile) are linked through the cloud server, where the resource-heavy calculations (i.e. user recognition, hand gesture detection) are performed. As a result, bystanders can easily manage their preferences, thanks to the scene management, their privacy profile, and the possibility of indicating a change in preferences with hand gestures. 
+
+The third presented technology, ConsenShare~\cite{olteanu2018consensual}, takes a different approach for protecting bystanders' privacy. Instead of acting at the time of data collection, it monitors data where bystanders are involved and necessitates the consent of said bystanders before users are allowed to share the data. This approach gives control to bystanders who become systematically aware if content they appear on is planned to be published. This way, bystanders can not only control their visual privacy, but also their location privacy. This kind of system is critical to address big privacy and ethical issues where sensible aspects of bystanders are disclosed, such as revenge pornography. 
+
+Despite our research, we could not find audio-centred technologies that aim to protect the privacy of bystanders, despite the existence for tools for protecting the audio privacy of users (e.g. in~\cite{larson2011accurate, ahmed2020preech}). This underlines the need for tools that aim to protect the audio privacy of bystanders. 
+
+One issue that remains, and is likely to stay until made mandatory by law, is that individuals are never required to use any of the proposed privacy enhancing tools. This means that bystanders' privacy can only be qualitative if a high number of users adopt these systems. Ideally, ubiquitous devices should have privacy by design, and bystanders should not have to take action to protect their privacy. In~\cite{olteanu2018consensual}, the authors estimate that the use of systems that check for the consent of bystanders before online sharing could become mandatory by law in a few years. Another limitation comes in the perception that creating privacy profiles on a cloud for ensuring one's own protection is a paradoxical, counter-productive action. Lastly, and more importantly, all of the presented technologies, although promising and efficient, stayed in the field of researched. Privacy protection for bystanders is still not addressed in everyday-use end-user applications and devices, despite the growing interest in research. However, the growth of clouds facilitate solutions like Cardea, making the use of such tools in everyday life a hopefully soon reality.
+
+%\begin{table}[htbp]
+%\caption{Table Type Styles}
+%\begin{center}
+%\begin{tabular}{|c|c|c|c|}
+%\hline
+%\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
+%\cline{2-4} 
+%\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
+%\hline
+%copy& More table copy$^{\mathrm{a}}$& &  \\
+%\hline
+%\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+%\end{tabular}
+%\label{tab1}
+%\end{center}
+%\end{table}
 
 \section*{Abbreviations and Acronyms}
 \addcontentsline{toc}{section}{Abbreviations and Acronyms}
