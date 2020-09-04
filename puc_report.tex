@@ -1,6 +1,5 @@
 \documentclass[conference]{IEEEtran}
-\usepackage[noadjust]{cite}
-\usepackage[utf8x]{inputenc}
+\usepackage[style=ieee]{biblatex}
 \usepackage[english]{babel}
 \usepackage[nottoc]{tocbibind}
 \usepackage{graphicx}
@@ -19,6 +18,9 @@
 			tabularx,			    %instead of tabular*             
 			booktabs,			%tables for good publications
 }
+
+\addbibresource{literature_list.bib}
+\renewcommand*{\bibfont}{\small}
 
 \begin{document}
 \title{Seminar on Privacy in Ubiquitous Computing}
@@ -65,22 +67,22 @@ This report focuses on the different technologies that address the pervasiveness
 \section{Bystanders’ privacy pervasiveness}\label{BystandersPrivacy}
 This section presents a number of examples where the privacy of bystanders was compromised in one way or another. These examples are divided into four categories: \nameref{Videos}, \nameref{Audio}, \nameref{Location}, and \nameref{Others}. For each example, an explanation of why the situation is problematic is given.
 
-\subsection{Videos \& images}\label{Videos}
+\subsection{Visual Privacy}\label{Videos}
 Visual privacy is the most common aspect of privacy that is threatened in Ubiquitous Computing, because of the never-ending increasing amount of devices containing cameras, e.g. smartphones, surveillance cameras, drones~\cite{yao2017privacy}, laptops, dashcams, \ac{AR} devices such as Google Glass, etc.~\cite{lu2017privacy, yao2017privacy, chinomi2008PriSurv}. Bystanders can be seen on pictures or videos without knowing it, and the contents can be shared online without their knowledge nor consent. 
 
 One of the most destructive forms of bystander privacy invasion is ``revenge pornography", which consists of an individual publicly disclosing sexual content regarding their (usually) ex-partner, hence the term "revenge"~\cite{olteanu2018consensual}. Individuals having been recorded or photographed---sometimes without being aware---by their partner have no way of limiting the spread of the contents online. Because of the disastrous consequences this can have on victims, using a system that systematically requires the consent of bystanders to allow publication is crucial.
 
 Examples of visual privacy being compromised by drones are described in~\cite{yao2017privacy}: small drones equipped with cameras can spy or stalk individuals without them noticing. The authors define a number of scenarios where drones are used and may capture bystanders. For example, describe a scenario in a public park: ``A drone controller is flying his drone in a public park and taking photos and videos for fun. [...] You and your family members may be captured in the pictures and videos taken by the drone". The authors point out that although technology-based mechanisms exist in drones in order to protect the privacy of bystanders, their perception by bystanders and individuals controlling the drones are unclear. Furthermore, they note different preferences depending on the context, further insisting on the need for configurable solutions.
 
-\subsection{Audio}\label{Audio}
+\subsection{Audio Privacy}\label{Audio}
 Along with the visual privacy usually goes audio, since ubiquitous devices are often equipped with a microphone. Therefore, previous examples can also be applied in the case of eavesdropping, e.g. a drone or a smartphone can record a video of bystanders having a conversation. However, the case of audio privacy has been more impacted by \ac{IoT} devices such as voice-assistants. 
 
 In fact, cases have been reported where audio files were unwillingly sent to other individuals. For example, an Amazon customer received 1700 audio files of a stranger who used an Amazon Alexa device (i.e. Amazon's voice-assistants brand), when requesting his own archived data~\cite{huffpost2018amazon}. Not only did the audio contain the voices of the user, but also of the bystanders that were occasionally heard. Coupled with social media information, the identity of the person heard on the files could be established. Although this was the result of a human mistake on the side of the company, this pinpoints the lack of control over the information stored by such devices. 
 
-More generally, individuals living with a user of such voice-assistants become bystanders and are exposed, which can lead to information disclosure, for example because of a misinterpreted set of instructions \cite{huffpost2018amazon}. 
+More generally, individuals living with a user of such voice-assistants become bystanders and are exposed to these devices, which can lead to information disclosure, e.g. because of a misinterpreted set of instructions \cite{huffpost2018amazon}. 
 
-\subsection{Location}\label{Location}
-Pervasive location information in apps (e.g. French StopCovid app recenses more contacts’ location information than announced)
+\subsection{Location Privacy}\label{Location}
+The protection of location privacy is crucial for users. Because of the high amount of policies and regulations regarding the sharing of one's location, the location of bystanders cannot easily be disclosed without their consent. However, it is still possible for users to link bystanders with locations. For example, a Facebook user could post a picture of themselves that also contains the faces of bystanders, while indicating the location where the picture was taken. Further linking can also be done if the user tags the people appearing in the picture as other Facebook users, directly linking an identity to a location. Although Facebook users can adjust their privacy settings to allow or disallow others to tag them~\cite{facebook2020help}, the unregistered or untagged bystanders appearing on photos or videos that have a location linked to them still have their location information disclosed without their knowledge or consent.
 
 \subsection{Others}\label{Others}
 IoT, see example in 2.b
@@ -215,8 +217,6 @@ copy& More table copy$^{\mathrm{a}}$& &  \\
 \acro{GPS} {\textit{Global Positioning System}}
 \end{acronym}
 
-\bibliographystyle{IEEEtran}
-{\footnotesize
-\bibliography{literature_list}}
+\printbibliography
 
 \end{document}
