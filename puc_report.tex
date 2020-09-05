@@ -23,7 +23,7 @@
 \renewcommand*{\bibfont}{\small}
 
 \begin{document}
-\title{Seminar on Privacy in Ubiquitous Computing}
+\title{The Protection of Bystanders' Privacy\\Seminar on Privacy in Ubiquitous Computing}
 
 \author{\IEEEauthorblockN{Mehmed Mustafa}
 \IEEEauthorblockA{\textit{Institute of Computer Science} \\
@@ -42,9 +42,7 @@ chris.warin@stud.uni-goettingen.de
 \pagestyle{plain}    % -- to make other pages number less.
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+The ubiquitous presence of privacy-threatening devices in nowadays' society is an issue that touches several domains, including economical, social, legal and technological. In this report, we present an overview of the situation regarding the privacy of bystanders, a topic that is getting more attention in research due to rising concerns. We describe the nature of devices that can threaten the visual, audio, and location privacy of bystanders in various situations: they include smartphones, drones, and, more recently, \ac{IoT} devices such as smart-home devices. We then discuss over a number of past attempts at solutions that were unfruitful, before coming to our focus by presenting three technologies that aim to protect the privacy of bystanders. We denote two major approaches: one that takes action upon the collection of data (e.g. visual abstraction of bystanders when they are being photographed), one upon the online-sharing of interdependent data. The technologies adopting the former approach rely on user participation: bystanders register a privacy profile that is accessed by the system when it recognizes them. This gives a necessary flexibility to those systems, because of the different requirements regarding privacy across different individuals. The latter approach is perhaps even more crucial, as the sharing of interdependent data without the knowledge or the consent of the implied bystanders can have disastrous consequences. The limitations and challenges of the presented technologies are also discussed; the main challenge being the inclusion of such systems in everyday's life apps and websites, to efficiently start protecting bystanders' privacy.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -96,7 +94,7 @@ Another domain where audio privacy can be compromised is healthcare. In \cite{la
 The protection of location privacy is crucial for users. Because of the high amount of policies and regulations regarding the sharing of one's location, the location of bystanders cannot easily be disclosed without their consent. However, it is still possible for users to link bystanders with locations. For example, a Facebook user could post a picture of themselves that also contains the faces of bystanders, while indicating the location where the picture was taken. Further linking can also be done if the user tags the people appearing in the picture as other Facebook users, directly linking an identity to a location. Although Facebook users can adjust their privacy settings to allow or disallow others to tag them~\cite{facebook2020help}, the unregistered or untagged bystanders appearing on photos or videos that have a location linked to them still have their location information disclosed without their knowledge or consent. These issues regarding the non-consensual sharing of bystanders' information such as their location have to be addressed in a system that could become mandatory by law~\cite{olteanu2018consensual}.
 
 \section{Technologies for ensuring the privacy of bystanders}\label{Technologies}
-In this section, we present several privacy enhancing technologies for bystanders. Sections \ref{PrivSurv} and \ref{Cardea} describe technologies that add visual abstraction on recognized individuals at the time of data collection (in this case, when a photo or video is taken). Section \ref{ConsenShare} describes a framework for managing interdependent data that is to be shared, in order to obtain the consent of all involved bystanders before sharing data.
+In this section, we present a simplified overview of several privacy enhancing technologies for bystanders. For each presented technology, we provide a typical run case and a system overview. Section \ref{PrivSurv} describes a technology that adds visual abstraction on recognized individuals at the time of data collection (in this case, when a video surveillance camera is recording).  Section \ref{Cardea} presents a similar, but more modern, general approach that can be used with ubiquitous cameras attached to different devices. Section \ref{ConsenShare} describes a framework for managing interdependent data that is to be shared, in order to obtain the consent of all involved bystanders before sharing data.
 
 \subsection{PriSurv System}\label{PrivSurv}
 The PriSurv system \cite{chinomi2008PriSurv} can adaptively protect the privacy of objects and disclose their visual information according to the privacy policies of the different objects. PriSurv is a video surveillance system, which is defined by visual abstraction and protects the privacy of objects appearing within a video depending on who observes the video. The closeness between objects and observers determines the privacy policies to be used. 
