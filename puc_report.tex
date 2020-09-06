@@ -111,12 +111,6 @@ Figure~\ref{fig:prisurv} is an example run case of PriSurv, which shows how visu
 
 \subsubsection{System overview}
 
-\begin{figure}[t]
-\centerline{\includegraphics[width=.5\textwidth]{img//prisurv_arch.png}}
-\caption{PriSurv system overview \cite{chinomi2008PriSurv}.}
-\label{fig:prisurv2}
-\end{figure}
-
 Figure~\ref{fig:prisurv2} shows the architecture of the PriSurv system. It consists of three main parts: Video Server, Main Server and Network. It also has six different components: \textbf{Analyzer}, \textbf{Profile Generator}, \textbf{Profile Base}, \textbf{Access Controller}, \textbf{Abstractor} and \textbf{Video Data Base}. 
 
 The \textbf{Analyzer}, which is a part of the video server, is responsible for identifying different objects. Each identifiable object must have its own \ac{RFID}-tag. The surveillance area is divided into smaller N x N areas and the location area of each \ac{RFID}-tag is determined by an \ac{RFID}-reader. Each object inside the original image is extracted and then identified separately by comparing the obtained visual data with the binary images of each object. 
@@ -128,6 +122,12 @@ The \textbf{Access Controller} determines the closeness relationship between a r
 The \textbf{Abstractor} is an image processor that performs visual abstraction by using abstraction operators. 
 
 The \textbf{Video Data Base} stores past video data and makes it available to viewers after appropriate visual abstractions are performed. 
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=.5\textwidth]{img//prisurv_arch.png}}
+\caption{PriSurv system overview \cite{chinomi2008PriSurv}.}
+\label{fig:prisurv2}
+\end{figure}
 
 \subsection{Cardea Framework}\label{Cardea}
 As discussed in section \ref{Intro}, there have been several unfruitful past attempts at protecting visual privacy regarding the pervasiveness of cameras. Later, there were proposals for using visual markers \cite{roesner2014, liu2014} or colourful hats \cite{sastry2007} with which people can declare their disagreement to be captured. These approaches, however, are not flexible enough, because people should be able to control, modify and express their individual privacy preferences naturally\textemdash without the need of any extra facilities. The PriSurv system, which was discussed in the previous section, also relies on extra facilities such as \ac{RFID}-tags and readers. Thus, it is not a feasible solution for built-in cameras. 
@@ -170,15 +170,14 @@ Figure~\ref{fig:cardea3} shows a privacy protection example of the Cardea framew
 
 
 \subsection{ConsenShare}\label{ConsenShare}
+Over the last decade sharing of variety of \ac{IPD} and \ac{MSPD} online has drastically increased due to emergence of \ac{OSN}s such as Facebook. The shared data can include very diverse content such as contact data, location data, multimedia data (audio, photo, video) and genomic data. Such data often involves information not only about the individual who shares them online, but also for other data subjects \cite{ahern2007}. Some data types, such as genomic data, photos and videos (especially ones including sexually-explicit content) attract more attention than others. Although there are some attempts to decrease the exposure of such data, typically for photos, they are not enough. For example, Facebook notifies users if they are tagged on some content. The users can then remove the tag or report the whole content for removal. However, this solution is still limited because users have to be either explicitly referenced (e.g. tagged) or they have to find the content themselves. Moreover, even after the content is eventually removed, it could be late, because some other users or service providers might already have seen the shared content. 
+
+\subsubsection{ConsenShare Overview}
 \begin{figure}[t]
 \centerline{\includegraphics[width=.5\textwidth]{img/consen_example.png}}
 \caption{ConsenShare framework example run case \cite{olteanu2018consensual}.}
 \label{fig:consen}
 \end{figure}
-
-Over the last decade sharing of variety of \ac{IPD} and \ac{MSPD} online has drastically increased due to emergence of \ac{OSN}s such as Facebook. The shared data can include very diverse content such as contact data, location data, multimedia data (audio, photo, video) and genomic data. Such data often involves information not only about the individual who shares them online, but also for other data subjects \cite{ahern2007}. Some data types, such as genomic data, photos and videos (especially ones including sexually-explicit content) attract more attention than others. Although there are some attempts to decrease the exposure of such data, typically for photos, they are not enough. For example, Facebook notifies users if they are tagged on some content. The users can then remove the tag or report the whole content for removal. However, this solution is still limited because users have to be either explicitly referenced (e.g. tagged) or they have to find the content themselves. Moreover, even after the content is eventually removed, it could be late, because some other users or service providers might already have seen the shared content. 
-
-\subsubsection{ConsenShare Overview}
 The ConsenShare framework \cite{olteanu2018consensual} considers three major entities: The users, the \ac{CMS} (e.g. OpenSNP for genomic data, Flickr for photos, or YouTube for videos) and the \ac{IMS} (responsible for identification of the users involved in the content). In practice, agencies or popular OSNs, such as Facebook, could play the role of the \ac{IMS}. Responsibility could be also split across several entities. Content uploaded to the CMS will be first sent for verification to all users whose privacy could be compromised, after they are first identified by the \ac{IMS}. The users will also receive contextual information about the upload content, such as the identity of the uploader, target audience, upload time, etc. The content will be visible to the target audience only after it is confirmed by all the users. 
 
 Developers of ConsenShare framework assume that the \ac{CMS} and \ac{IMS} are honest, trustable and independent parties. However, they could still be curious and try to infer sensitive information from the data observed. Moreover, conclusion about social ties among users could be made. For instance, if a user named Bob often accepts that other user Alice shares content regarding him, it is likely they are good friends. Other threats such as creation of fake profiles and taking the identity of another individual still remain. Developers also assume that secure two-way communication channels, typically over HTTPS, have been established between all entities. A malicious user might still try to gather data and monitor communications among the different entities in the framework. 
@@ -204,7 +203,7 @@ This report presented technologies that ensure the privacy of bystanders in vari
 
 Several privacy enhancing tools have been presented. PrivSurv~\cite{chinomi2008PriSurv}, a video surveillance system, relies on  \ac{RFID} tags to detect individuals. It then processes the recorded videos accordingly to the privacy preferences defined by the concerned bystanders in the system's profile base: bystanders can choose between different abstraction operators that are selected by the access controller upon determination of the closeness between the bystander and the viewer. Despite not being the state of the art and relying on extra facilities, it remains an interesting first step and brings good ideas such as having profiles defined by the users themselves to match their personal requirements. 
 
-The same idea was taken almost ten years later in Cardea~\cite{shu2016cardea}, which is the second technology we presented. The strength of Cardea lies in the absence of external facilities: bystanders can indicate their consent for being photographed with simple hand gestures. The two client applications (i.e. one for the users that with to take pictures, the other for bystanders to register their privacy profile) are linked through the cloud server, where the resource-heavy calculations (i.e. user recognition, hand gesture detection) are performed. As a result, bystanders can easily manage their preferences, thanks to the scene management, their privacy profile, and the possibility of indicating a change in preferences with hand gestures. 
+The same idea was taken almost ten years later in Cardea \cite{shu2016cardea}, which is the second technology we presented. The strength of Cardea lies in the absence of external facilities: bystanders can indicate their consent for being photographed with simple hand gestures. The two client applications (i.e. one for the users that with to take pictures, the other for bystanders to register their privacy profile) are linked through the cloud server, where the resource-heavy calculations (i.e. user recognition, hand gesture detection) are performed. As a result, bystanders can easily manage their preferences, thanks to the scene management, their privacy profile, and the possibility of indicating a change in preferences with hand gestures. 
 
 The third presented technology, ConsenShare~\cite{olteanu2018consensual}, takes a different approach for protecting bystanders' privacy. Instead of acting at the time of data collection, it monitors data where bystanders are involved and necessitates the consent of said bystanders before users are allowed to share the data. This approach gives control to bystanders who become systematically aware if content they appear on is planned to be published. This way, bystanders can not only control their visual privacy, but also their location privacy. This kind of system is critical to address big privacy and ethical issues where sensible aspects of bystanders are disclosed, such as revenge pornography. 
 
