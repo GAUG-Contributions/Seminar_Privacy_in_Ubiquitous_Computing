@@ -1,1 +1,0 @@
-# Seminar_Privacy_in_Ubiquitous_Computing
