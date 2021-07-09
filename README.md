@@ -1,7 +1,7 @@
 # Seminar_Privacy_in_Ubiquitous_Computing
 Georg-August-University Goettingen
 
-Seminar Privacy in Ubiquitous Computing - Spring 2020
+(Seminar) Privacy in Ubiquitous Computing - Spring 2020
 
 Supervisor: Prof. Dr. Delphine Reinhardt
 
